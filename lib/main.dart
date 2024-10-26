@@ -2,90 +2,82 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter/material.dart';
-
 void main() {
-  runApp(MyApp());
+  runApp(MoviesCatApp());
 }
 
-class MyApp extends StatelessWidget {
+class MoviesCatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'LDSW',
+      title: 'MoviesCat',
+      theme: ThemeData.dark(), 
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Hello world',
-                style: TextStyle(fontSize: 24),
-              ),
-              SizedBox(height: 20),
-              Container(
-                color: const Color.fromARGB(255, 107, 185, 18),
-                padding: EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text('Fila 1'),
-                    SizedBox(width: 10),
-                    Text('Fila 2'),
-                  ],
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/background.jpg', 
+              fit: BoxFit.cover,
+            ),
+            Container(
+              color: Colors.black.withOpacity(0.6), 
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.movie,
+                  color: Colors.white,
+                  size: 80,
                 ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                color: const Color.fromARGB(255, 114, 112, 214),
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: <Widget>[
-                    Text('Columna 1'),
-                    SizedBox(height: 10),
-                    Text('Columna 2'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              Stack(
-                alignment: Alignment.center,
-                children: <Widget>[
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.cyan,
-                  ),
-                  Text(
-                    'Un Stack',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Container(
-                width: 200,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Un contenedor',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
+                    'MoviesCat',
+                    style: TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+                Text(
+                  'Bienvenido',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton.icon(
+                  onPressed: () {
+                  },
+                  icon: Icon(Icons.explore),
+                  label: Text('Explorar Películas'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 75, 12, 12),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    textStyle: TextStyle(fontSize: 18),
+                  ),
+                ),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    'Sobre Nosotros',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
-
