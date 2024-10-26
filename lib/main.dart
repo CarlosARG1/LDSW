@@ -17,7 +17,7 @@ class MoviesCatApp extends StatelessWidget {
           fit: StackFit.expand,
           children: <Widget>[
             Image.asset(
-              'assets/images/background.jpg', 
+              'background.jpg', 
               fit: BoxFit.cover,
             ),
             Container(
