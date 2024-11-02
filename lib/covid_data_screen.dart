@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'models/covid_data.dart';
+import '/covid_data.dart';
 
 class CovidDataScreen extends StatefulWidget {
   @override
